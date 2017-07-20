@@ -2,7 +2,7 @@ import { log } from './logger'
 
 export class Storage {
   constructor(db = 'session') {
-    this.storage = window[`${this.db}Storage`]
+    this.storage = window[`${db}Storage`]
   }
   set(k, v) {
     try {

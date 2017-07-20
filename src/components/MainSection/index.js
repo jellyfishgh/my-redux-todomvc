@@ -3,18 +3,16 @@ import PropTypes from 'prop-types'
 
 import TodoItem from './TodoItem'
 
-import { propTypes } from '../containers/App'
-
-export const propTypes = {
-  ...propTypes,
+export const sectionPropTypes = {
+  completedCount: PropTypes.number,
   todos: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 }
 
 export default class MainSection extends Component {
-  static propTypes = propTypes
+  static propTypes = sectionPropTypes
   render() {
-    const { todos, actions } = this.props
+    const { todos, actions, completedCount } = this.props
     return (
       <section className="main">
         <input

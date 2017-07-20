@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, compose } from 'redux'
 import { persistState } from 'redux-devtools'
 
 import rootReducer from '../reducers'
@@ -20,4 +20,5 @@ if (module.hot) {
     store.replaceReducer(require('../reducers'))
   )
 }
+
 export default store

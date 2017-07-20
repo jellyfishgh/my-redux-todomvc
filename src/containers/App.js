@@ -1,24 +1,19 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Header from '../components/Header'
 import MainSection, { sectionPropTypes } from '../components/MainSection'
-import Footer, { TODO_FILTERS, footerPropTypes } from '../components/Footer'
+import Footer, { TODO_FILTERS, filterPropTypes } from '../components/Footer'
 import * as actions from '../actions'
 
 import { SHOW_COMPLETED } from '../constants/TodoFilters'
 
-export const propTypes = {
-  completedCount: PropTypes.number
-}
-
 class App extends Component {
   static propTypes = {
     ...sectionPropTypes,
-    ...footerPropTypes
+    ...filterPropTypes
   }
   render() {
     const { todos, actions, filter } = this.props

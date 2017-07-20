@@ -8,8 +8,6 @@ import {
   SHOW_ACTIVE
 } from '../../constants/TodoFilters'
 
-import { propTypes } from '../containers/App'
-
 const FILTER_ENUM = [SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE]
 const FILTER_TITLES = {
   [SHOW_ALL]: 'All',
@@ -32,8 +30,8 @@ export default class Footer extends Component {
     clearCompleted: PropTypes.func.isRequired,
     setShowFilter: PropTypes.func.isRequired,
     activeCount: PropTypes.number,
-    ...filterPropTypes,
-    ...propTypes
+    completedCount: PropTypes.number,
+    ...filterPropTypes
   }
   render() {
     const {
@@ -58,7 +56,7 @@ export default class Footer extends Component {
                 href="javascript;"
                 onClick={() => setShowFilter(f)}
               >
-                FILTER_TITLES[f]
+                {FILTER_TITLES[f]}
               </a>
             </li>
           )}
