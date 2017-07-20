@@ -13,9 +13,9 @@ export class Storage {
       return false
     }
   }
-  get(k) {
+  get(k, defaultValue = null) {
     let v = this.storage.getItem(k)
-    if (v === undefined) return v
+    if (v === undefined) return defaultValue
     try {
       v = JSON.parse(v)
       return v
@@ -26,4 +26,5 @@ export class Storage {
   }
 }
 
-export default db => new Storage(db)
+export const sdb = new Storage()
+export const ldb = new Storage('local')
